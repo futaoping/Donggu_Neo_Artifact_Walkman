@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"> <!-- 背景设为白色，可根据你的 open.png 调整 -->
+
+    <!-- 开屏图片 -->
+    <ImageView
+        android:id="@+id/iv_splash"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/open"
+        android:scaleType="fitCenter"
+        android:contentDescription="开屏图" />
+
+    <!-- 底部文字 -->
+    <TextView
+        android:id="@+id/tv_splash_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"
+        android:text="杨"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

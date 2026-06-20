@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 使用 FrameLayout 实现层叠效果 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 1. 最底层：背景图 (使用 ImageView 保证不变形) -->
+    <!-- 请把 bg_main 换成你的图片名 -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_main"
+        android:scaleType="centerCrop" /> <!-- 关键：居中裁剪，填满屏幕且不变形 -->
+
+    <!-- 2. 上层：内容区域 (必须透明，才能透出底下的背景图) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/transparent"> <!-- 强制透明 -->
+
+        <!-- 3. 自定义标题栏 -->
+        <!-- 3. 自定义标题栏区域 (用水平 LinearLayout 包裹标题和按钮) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="40dp"
+            android:paddingHorizontal="16dp">
+
+            <!-- 标题文本 (使用 layout_weight 占据剩余空间，保证文字视觉上绝对居中) -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="冬古基金会音乐台"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:shadowColor="#88FFFFFF"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2" />
+
+            <!-- 【新增】右侧的百科跳转按钮 -->
+            <ImageButton
+                android:id="@+id/btn_info"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/info"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="前往物华弥新百科"
+                android:scaleType="fitCenter" />
+
+        </LinearLayout><!-- 加一点阴影防止背景太浅看不清字 -->
+
+        <!-- 4. 播放器区域 -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_album"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@android:color/transparent" /> <!-- 强制透明 -->
+
+    </LinearLayout>
+
+</FrameLayout>

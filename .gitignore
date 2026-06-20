@@ -1,0 +1,31 @@
+# ================= Android 前端忽略 =================
+/build
+/.gradle
+/.idea
+*.iml
+local.properties
+/app/release
+/captures
+.externalNativeBuild
+.cxx
+
+# ================= Spring Boot 后端忽略 =================
+/target
+*.class
+*.jar
+*.war
+*.log
+.settings
+.project
+.classpath
+*.iml
+
+# ================= 通用忽略 =================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# ================= 敏感信息（建议不要上传） =================
+# /src/main/resources/application.properties 
